@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Видатні греки Харківщини — Геліос</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d2b5e'/><text y='72' x='50' text-anchor='middle' font-size='60'>☀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2b5e;
+    --blue: #1a4fa0;
+    --mid: #2e6fd9;
+    --sky: #5b9bd5;
+    --pale: #cde3f8;
+    --fog:  #e8f2fb;
+    --white: #ffffff;
+    --ink:  #0a1f3d;
+    --muted: #4a6a94;
+    --border: #c0d8ef;
+    --gold: #c8a84b;
+    --r: 10px;
+    --r-lg: 16px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    color: var(--muted); transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .lang-switcher {
+    display: flex; gap: 4px;
+  }
+  .lang-btn {
+    border: 1px solid var(--border);
+    background: none; cursor: pointer;
+    padding: 4px 10px; border-radius: 6px;
+    font-size: 12px; font-weight: 500;
+    color: var(--muted); transition: all .2s;
+    font-family: 'Outfit', sans-serif;
+  }
+  .lang-btn.active {
+    background: var(--navy); color: var(--white); border-color: var(--navy);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 520px;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 55%, var(--mid) 100%);
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .hero-circle-1 { width: 600px; height: 600px; right: -100px; top: -200px; }
+  .hero-circle-2 { width: 350px; height: 350px; right: 80px; top: -60px; }
+  .hero-circle-3 { width: 180px; height: 180px; right: 200px; top: 60px; }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto;
+    padding: 80px 2rem 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 100px;
+    padding: 6px 14px; margin-bottom: 20px;
+    font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,.9); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 600; line-height: 1.1;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .hero h1 em { font-style: normal; color: var(--white); }
+  .hero-sub {
+    font-size: 15px; font-weight: 300;
+    color: rgba(255,255,255,.75); line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--navy);
+    border: none; border-radius: 8px;
+    padding: 12px 24px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    font-family: 'Outfit', sans-serif;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(255,255,255,.15); border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  .hero-stat {
+    background: rgba(255,255,255,.06);
+    padding: 24px 20px; text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 600;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 12px; font-weight: 400;
+    color: rgba(255,255,255,.6); margin-top: 4px;
+  }
+
+  /* ── CATALOG SECTION ── */
+  .section { max-width: 1100px; margin: 0 auto; padding: 64px 2rem; }
+  .section-header { margin-bottom: 40px; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--mid);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* Categories */
+  .categories {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+  }
+  .cat-btn {
+    display: flex; align-items: center; gap: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--white); border-radius: 100px;
+    padding: 8px 16px; font-size: 13px; font-weight: 500;
+    color: var(--muted); cursor: pointer;
+    transition: all .2s; font-family: 'Outfit', sans-serif;
+  }
+  .cat-btn:hover { border-color: var(--mid); color: var(--navy); }
+  .cat-btn.active {
+    background: var(--navy); border-color: var(--navy);
+    color: var(--white);
+  }
+  .cat-badge {
+    font-size: 11px; font-weight: 600;
+    background: rgba(0,0,0,.08); border-radius: 100px;
+    padding: 1px 7px; min-width: 22px; text-align: center;
+  }
+  .cat-btn.active .cat-badge { background: rgba(255,255,255,.2); }
+
+  /* Search */
+  .search-wrap { margin-bottom: 32px; }
+  .search-box {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--fog); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 10px 16px;
+    max-width: 400px;
+  }
+  .search-box svg { flex-shrink: 0; color: var(--muted); }
+  .search-box input {
+    border: none; background: none; outline: none;
+    font-size: 14px; font-family: 'Outfit', sans-serif;
+    color: var(--ink); width: 100%;
+  }
+  .search-box input::placeholder { color: var(--muted); }
+
+  /* Person Grid */
+  .person-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .person-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+  }
+  .person-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(13,43,94,.12);
+    border-color: var(--sky);
+  }
+  .person-card-photo {
+    height: 180px; background: var(--fog);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .person-card-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .person-card-photo-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; color: var(--pale);
+    font-weight: 600;
+  }
+  .person-card-cat {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(13,43,94,.85);
+    color: var(--pale); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .person-card-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+  .person-card-years {
+    font-size: 12px; color: var(--muted); margin-bottom: 6px;
+  }
+  .person-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px; font-weight: 600;
+    color: var(--navy); line-height: 1.25; margin-bottom: 8px;
+  }
+  .person-card-resume {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.55; flex: 1;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .person-card-footer {
+    margin-top: 14px; padding-top: 12px;
+    border-top: 1px solid var(--fog);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .person-card-area {
+    font-size: 11px; color: var(--sky); font-weight: 500;
+  }
+  .person-card-arrow {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--fog); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: var(--navy);
+    transition: background .2s, color .2s;
+  }
+  .person-card:hover .person-card-arrow {
+    background: var(--navy); color: var(--white);
+  }
+
+  /* Empty state */
+  .empty-state {
+    grid-column: 1/-1; text-align: center;
+    padding: 60px 20px; color: var(--muted);
+  }
+  .empty-state-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state p { font-size: 15px; }
+
+  /* Loading */
+  .loading {
+    grid-column: 1/-1; text-align: center;
+    padding: 60px; color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid var(--pale);
+    border-top-color: var(--mid);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.6);
+    padding: 40px 2rem;
+    text-align: center; font-size: 13px;
+    line-height: 1.8;
+  }
+  footer strong { color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 48px 1.5rem; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .nav-links { display: none; }
+    .section { padding: 48px 1.5rem; }
+  }
+
+  /* fade-in animation */
+  .person-card { animation: fadeUp .35s ease both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">☀</div>
+    <span class="nav-logo-text">Геліос</span>
+  </a>
+  <div class="nav-links">
+    <a href="#catalog">Видатні постаті</a>
+    <a href="about.html">Про проєкт</a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('UA')">UA</button>
+    <button class="lang-btn" onclick="setLang('EN')">EN</button>
+    <button class="lang-btn" onclick="setLang('GR')">GR</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-circle hero-circle-1"></div>
+  <div class="hero-circle hero-circle-2"></div>
+  <div class="hero-circle hero-circle-3"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Харківське товариство греків
+      </div>
+      <h1>Видатні <em>греки</em><br>Харківщини</h1>
+      <p class="hero-sub">
+        Інформаційно-просвітительська платформа, присвячена особистостям грецького походження,
+        що залишили слід в історії та культурі Харківського регіону.
+      </p>
+      <a href="#catalog" class="hero-cta">
+        Переглянути всіх постатей
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="stat-total">—</div>
+        <div class="hero-stat-label">видатних постатей</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">мови платформи</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">12</div>
+        <div class="hero-stat-label">місць маршруту</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section" id="catalog">
+  <div class="section-header">
+    <div class="section-eyebrow">Каталог</div>
+    <h2 class="section-title">Видатні постаті</h2>
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" id="search-input" placeholder="Пошук за іменем..." oninput="filterPersons()">
+    </div>
+  </div>
+
+  <div class="categories" id="categories">
+    <button class="cat-btn active" data-cat="all" onclick="setCat(this,'all')">
+      Всі <span class="cat-badge" id="badge-all">—</span>
+    </button>
+    <!-- dynamic category buttons inserted here -->
+  </div>
+
+  <div class="person-grid" id="person-grid">
+    <div class="loading">
+      <div class="spinner"></div>
+      <span>Завантаження даних...</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Харківське обласне товариство греків «Геліос»</strong><br>
+  Інформаційно-просвітительська платформа «Видатні греки Харківщини»<br>
+  <br>
+  <span style="font-size:12px;opacity:.5;">© 2025 Геліос · Харків</span>
+</footer>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQD4AbZBFczv6I0moaH6vtqfequ1TQuvxo57aPU_eMt0Uuz3S4oVoVjZudKveZ6NhbLGPVvDywvuz8s/pub?gid=0&single=true&output=csv'; // замінити на ваш CSV URL з Google Sheets
+// напр: 'https://docs.google.com/spreadsheets/d/XXXX/pub?gid=0&single=true&output=csv'
+
+const PHOTO_PLACEHOLDER = '';
+
+// ── STATE ───────────────────────────────────────────────────────────────
+let allPersons = [];
+let currentLang = 'UA';
+let currentCat  = 'all';
+
+// ── LANG ────────────────────────────────────────────────────────────────
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes("'"+lang+"'"));
+  });
+  buildCategories();
+  renderGrid();
+}
+
+// ── CSV PARSE ───────────────────────────────────────────────────────────
+function parseCSV(text) {
+  const rows = [];
+  let inQ = false, field = '', row = [];
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (c === '"') { inQ = !inQ; continue; }
+    if (c === ',' && !inQ) { row.push(field); field = ''; continue; }
+    if ((c === '\n' || c === '\r') && !inQ) {
+      if (c === '\r' && text[i+1] === '\n') i++;
+      row.push(field); rows.push(row); field = ''; row = []; continue;
+    }
+    field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function rowsToObjects(rows) {
+  const headers = rows[0].map(k => k.replace(/[\r\n\t]/g,'').trim());
+  return rows.slice(1).filter(r => r.some(c => c.trim())).map(r => {
+    const obj = {};
+    headers.forEach((h, i) => { if(h) obj[h] = (r[i] || '').trim(); });
+    return obj;
+  });
+}
+
+// ── FETCH DATA ──────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const resp = await fetch(SHEET_CSV_URL);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    const rows = parseCSV(text);
+    allPersons = rowsToObjects(rows);
+    document.getElementById('stat-total').textContent = allPersons.length;
+    buildCategories();
+    renderGrid();
+  } catch(e) {
+    document.getElementById('person-grid').innerHTML =
+      `<div class="empty-state">
+        <div class="empty-state-icon">⚠</div>
+        <p>Не вдалось завантажити дані.<br>Перевірте посилання на Google Sheets у коді.</p>
+      </div>`;
+    console.error(e);
+  }
+}
+
+// ── HELPERS ─────────────────────────────────────────────────────────────
+function field(person, key) {
+  const exact = person[currentLang + '_' + key];
+  if (exact !== undefined && exact !== '') return exact;
+  const ua = person['UA_' + key];
+  if (ua !== undefined) return ua;
+  const lk = (currentLang + '_' + key).toLowerCase();
+  const found = Object.keys(person).find(k => k.toLowerCase() === lk);
+  if (found) return person[found];
+  const fk = ('ua_' + key).toLowerCase();
+  const fb = Object.keys(person).find(k => k.toLowerCase() === fk);
+  return fb ? person[fb] : '';
+}
+
+function firstPhoto(person) {
+  const photos = (person['Photos'] || '').split(',').map(s => s.trim()).filter(Boolean);
+  return photos[0] || '';
+}
+
+function driveThumb(url) {
+  // Convert Google Drive share link to direct thumbnail
+  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w400`;
+  return url;
+}
+
+function getCategories() {
+  const cats = {};
+  allPersons.forEach(p => {
+    const c = field(p, 'Category') || 'Інші';
+    cats[c] = (cats[c] || 0) + 1;
+  });
+  return cats;
+}
+
+// ── CATEGORIES ──────────────────────────────────────────────────────────
+function buildCategories() {
+  const cats = getCategories();
+  const container = document.getElementById('categories');
+  // keep "Всі" button
+  const allBtn = container.querySelector('[data-cat="all"]');
+  container.innerHTML = '';
+  container.appendChild(allBtn);
+  document.getElementById('badge-all').textContent = allPersons.length;
+
+  Object.entries(cats).forEach(([cat, count]) => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn' + (currentCat === cat ? ' active' : '');
+    btn.dataset.cat = cat;
+    btn.innerHTML = `${cat} <span class="cat-badge">${count}</span>`;
+    btn.onclick = () => setCat(btn, cat);
+    container.appendChild(btn);
+  });
+}
+
+function setCat(btn, cat) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+// ── FILTER ──────────────────────────────────────────────────────────────
+function filterPersons() { renderGrid(); }
+
+function getFiltered() {
+  const q = (document.getElementById('search-input').value || '').toLowerCase();
+  return allPersons.filter(p => {
+    const name = field(p, 'Name').toLowerCase();
+    const cat  = field(p, 'Category');
+    const matchCat  = currentCat === 'all' || cat === currentCat;
+    const matchSearch = !q || name.includes(q);
+    return matchCat && matchSearch;
+  });
+}
+
+// ── RENDER GRID ──────────────────────────────────────────────────────────
+function renderGrid() {
+  const grid = document.getElementById('person-grid');
+  const persons = getFiltered();
+
+  if (!persons.length) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon">🔍</div>
+      <p>Нікого не знайдено. Спробуйте інший запит або категорію.</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = persons.map((p, i) => {
+    const name  = field(p, 'Name');
+    const years = field(p, 'Years');
+    const cat   = field(p, 'Category');
+    const area  = field(p, 'Activity Area');
+    const resume= field(p, 'Resume');
+    const photoUrl = firstPhoto(p);
+    const initials = name.split(' ').slice(0,2).map(w=>w[0]||'').join('');
+
+    const photoHTML = photoUrl
+      ? `<img src="${driveThumb(photoUrl)}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      : '';
+    const placeholderStyle = photoUrl ? 'display:none' : '';
+
+    return `<a class="person-card" href="person.html?id=${encodeURIComponent(p['№'] || name)}&lang=${currentLang}"
+        style="animation-delay:${i*0.04}s">
+      <div class="person-card-photo">
+        ${photoHTML}
+        <div class="person-card-photo-placeholder" style="${placeholderStyle}">${initials}</div>
+        <span class="person-card-cat">${cat}</span>
+      </div>
+      <div class="person-card-body">
+        <div class="person-card-years">${years}</div>
+        <div class="person-card-name">${name}</div>
+        <div class="person-card-resume">${resume}</div>
+        <div class="person-card-footer">
+          <span class="person-card-area">${area}</span>
+          <span class="person-card-arrow">→</span>
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>

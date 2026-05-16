@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про проєкт — Геліос</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d2b5e'/><text y='72' x='50' text-anchor='middle' font-size='60'>☀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0d2b5e;--blue:#1a4fa0;--mid:#2e6fd9;--sky:#5b9bd5;
+    --pale:#cde3f8;--fog:#e8f2fb;--white:#ffffff;--ink:#0a1f3d;
+    --muted:#4a6a94;--border:#c0d8ef;--gold:#c8a84b;
+    --r:10px;--r-lg:16px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--ink);}
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px;
+  }
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-icon{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);letter-spacing:.04em;}
+  .nav-back{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;}
+  .nav-back:hover{color:var(--navy);}
+
+  .page-hero{
+    background:linear-gradient(150deg,var(--navy) 0%,var(--blue) 60%,var(--mid) 100%);
+    padding:64px 2rem;
+    position:relative;overflow:hidden;
+  }
+  .hero-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.07);}
+  .hc1{width:400px;height:400px;right:-50px;top:-150px;}
+  .hc2{width:220px;height:220px;right:60px;top:-20px;}
+  .page-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+  .page-hero h1{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);
+    font-weight:600;color:var(--white);margin-bottom:12px;
+  }
+  .page-hero p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;}
+
+  .content{max-width:760px;margin:0 auto;padding:56px 2rem 80px;}
+  .content h2{
+    font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;
+    color:var(--navy);margin:40px 0 14px;
+  }
+  .content p{font-size:15px;line-height:1.8;color:#1e3a5f;margin-bottom:14px;}
+  .content a{color:var(--mid);}
+
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+  .info-card{
+    background:var(--fog);border:1.5px solid var(--border);
+    border-radius:var(--r-lg);padding:20px 22px;
+  }
+  .info-card-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;}
+  .info-card-val{font-size:15px;color:var(--navy);}
+
+  footer{background:var(--navy);color:rgba(255,255,255,.6);padding:36px 2rem;text-align:center;font-size:13px;line-height:1.8;}
+  footer strong{color:var(--white);}
+  @media(max-width:600px){.info-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">☀</div>
+    <span class="nav-logo-text">Геліос</span>
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M7 16L3 12m0 0l4-4M3 12h18"/>
+    </svg>
+    На головну
+  </a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+  <div class="page-hero-inner">
+    <h1>Про проєкт</h1>
+    <p>Харківське обласне товариство греків «Геліос» та платформа «Видатні греки Харківщини»</p>
+  </div>
+</div>
+
+<div class="content">
+  <h2>Про товариство «Геліос»</h2>
+  <p>
+    Харківське обласне товариство греків «Геліос» — громадська організація, що об'єднує представників грецької громади Харківщини, зберігає та популяризує грецьку культуру, мову і традиції.
+  </p>
+  <p>
+    [Додайте тут короткий опис товариства, рік заснування, основні напрямки діяльності.]
+  </p>
+
+  <h2>Про платформу</h2>
+  <p>
+    Ця інформаційно-просвітительська платформа присвячена видатним особистостям грецького походження, які жили та працювали на Харківщині і залишили помітний слід в науці, медицині, культурі та громадському житті регіону.
+  </p>
+  <p>
+    В основі платформи — книга, підготовлена членами товариства «Геліос», яка охоплює 44 видатні постаті. Платформа доступна трьома мовами: українською, англійською та грецькою.
+  </p>
+
+  <h2>Контакти</h2>
+  <p>
+    [Додайте контактну інформацію: адреса, email, телефон, соціальні мережі.]
+  </p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-label">Організація</div>
+      <div class="info-card-val">Харківське обласне товариство греків «Геліос»</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Платформа</div>
+      <div class="info-card-val">Видатні греки Харківщини · 44 постаті · 3 мови</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Email</div>
+      <div class="info-card-val"><a href="mailto:info@helios-kharkiv.ua">info@helios-kharkiv.ua</a></div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Рік запуску</div>
+      <div class="info-card-val">2025</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Харківське обласне товариство греків «Геліос»</strong><br>
+  Інформаційно-просвітительська платформа «Видатні греки Харківщини»<br>
+  <span style="font-size:12px;opacity:.5;">© 2025 Геліос · Харків</span>
+</footer>
+</body>
+</html>
