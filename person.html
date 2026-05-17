@@ -189,9 +189,9 @@
         </div>
       </div>
       <div class="tab-strip">
-        <button class="tab-btn active" onclick="showTab('bio',this)">Біографія</button>
-        <button class="tab-btn" onclick="showTab('gallery',this)">Фото</button>
-        <button class="tab-btn" onclick="showTab('video',this)">Відео</button>
+        <button class="tab-btn active" id="tab-btn-bio" onclick="showTab('bio',this)" data-tab="bio">Біографія</button>
+        <button class="tab-btn" id="tab-btn-gallery" onclick="showTab('gallery',this)" data-tab="gallery">Фото</button>
+        <button class="tab-btn" id="tab-btn-video" onclick="showTab('video',this)" data-tab="video">Відео</button>
       </div>
     </div>
   </div>
@@ -225,29 +225,29 @@
     <div id="tab-bio">
       <div class="resume-card" id="p-resume"></div>
       <div class="achievements" id="achievements-block">
-        <h3>Ключові досягнення</h3>
+        <h3 id="h-achievements">Ключові досягнення</h3>
         <div id="achievements-list"></div>
       </div>
       <div class="bio-section" id="bio-block">
-        <h3>Біографія</h3>
+        <h3 id="h-bio">Біографія</h3>
         <div class="bio-text" id="p-bio"></div>
       </div>
       <div class="places-section" id="places-block">
-        <h3>Пов'язані місця в Харкові</h3>
+        <h3 id="h-places">Пов'язані місця в Харкові</h3>
         <div class="places-list" id="places-list"></div>
       </div>
     </div>
 
     <div id="tab-gallery" style="display:none">
       <div class="gallery-section">
-        <h3>Фотографії</h3>
+        <h3 id="h-gallery">Фотографії</h3>
         <div class="gallery-grid" id="gallery-grid"></div>
       </div>
     </div>
 
     <div id="tab-video" style="display:none">
       <div class="video-section">
-        <h3>Відео</h3>
+        <h3 id="h-video">Відео</h3>
         <div class="video-grid" id="video-grid"></div>
       </div>
     </div>
@@ -336,6 +336,41 @@ function youtubeId(url) {
   return m ? m[1] : null;
 }
 
+// ── UI STRINGS ───────────────────────────────────────────────────────────
+const UI = {
+  UA: {
+    tab_bio: 'Біографія', tab_gallery: 'Фото', tab_video: 'Відео',
+    h_achievements: 'Ключові досягнення', h_bio: 'Біографія',
+    h_places: "Пов'язані місця в Харкові", h_gallery: 'Фотографії', h_video: 'Відео',
+    audio_label: 'Слухати біографію', no_photo: 'Фотографій немає.', no_video: 'Відео немає.',
+  },
+  EN: {
+    tab_bio: 'Biography', tab_gallery: 'Photos', tab_video: 'Video',
+    h_achievements: 'Key achievements', h_bio: 'Biography',
+    h_places: 'Related places in Kharkiv', h_gallery: 'Photos', h_video: 'Video',
+    audio_label: 'Listen to biography', no_photo: 'No photos.', no_video: 'No video.',
+  },
+  GR: {
+    tab_bio: 'Βιογραφία', tab_gallery: 'Φωτογραφίες', tab_video: 'Βίντεο',
+    h_achievements: 'Βασικά επιτεύγματα', h_bio: 'Βιογραφία',
+    h_places: 'Σχετικά μέρη στο Χάρκοβο', h_gallery: 'Φωτογραφίες', h_video: 'Βίντεο',
+    audio_label: 'Ακούστε τη βιογραφία', no_photo: 'Δεν υπάρχουν φωτογραφίες.', no_video: 'Δεν υπάρχει βίντεο.',
+  },
+};
+
+function updateUIStrings() {
+  const s = UI[currentLang] || UI.UA;
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set('tab-btn-bio',     s.tab_bio);
+  set('tab-btn-gallery', s.tab_gallery);
+  set('tab-btn-video',   s.tab_video);
+  set('h-achievements',  s.h_achievements);
+  set('h-bio',           s.h_bio);
+  set('h-places',        s.h_places);
+  set('h-gallery',       s.h_gallery);
+  set('h-video',         s.h_video);
+}
+
 // ── LANG ─────────────────────────────────────────────────────────────────
 function setLang(lang) {
   currentLang = lang;
@@ -346,6 +381,8 @@ function setLang(lang) {
   const url = new URL(location.href);
   url.searchParams.set('lang', lang);
   history.replaceState(null, '', url.toString());
+  // Оновлюємо статичні рядки UI
+  updateUIStrings();
   // Перерендеруємо весь контент
   if (person) renderPerson();
 }
@@ -456,8 +493,8 @@ function openLightbox(index) {
   document.getElementById('lightbox').classList.add('open');
 }
 function showLightboxPhoto() {
-  document.getElementById('lightbox-img').src = driveThumb(lightboxPhotos[lightboxIndex], 'w1200');
-  document.getElementById('lightbox-counter').textContent = (lightboxIndex + 1) + ' / ' + lightboxPhotos.length;
+  const li = document.getElementById('lightbox-img'); if (li) li.src = driveThumb(lightboxPhotos[lightboxIndex], 'w1200');
+  const lc = document.getElementById('lightbox-counter'); if (lc) lc.textContent = (lightboxIndex + 1) + ' / ' + lightboxPhotos.length;
 }
 function lightboxNav(dir) {
   lightboxIndex = (lightboxIndex + dir + lightboxPhotos.length) % lightboxPhotos.length;
@@ -495,9 +532,8 @@ function renderPerson() {
   document.getElementById('p-years').textContent    = years;
   document.getElementById('p-birth').textContent    = birth;
 
-  // Avatar
+  // Avatar — завжди перебудовуємо повністю
   const initials = name.split(' ').slice(0, 2).map(w => w[0] || '').join('');
-  document.getElementById('avatar-initials').textContent = initials;
   const photos = (p['Photos'] || '').split(',').map(s => s.trim()).filter(Boolean);
   const avatarEl = document.getElementById('avatar');
   if (photos[0]) {
@@ -549,7 +585,7 @@ function renderPerson() {
     ? photos.map((url, i) => `<div class="gallery-img" onclick="openLightbox(${i})">
         <img src="${driveThumb(url, 'w600')}" alt="Фото ${i+1}" loading="lazy">
       </div>`).join('')
-    : `<p style="color:var(--muted);font-size:14px;">Фотографій немає.</p>`;
+    : `<p style="color:var(--muted);font-size:14px;">${UI[currentLang].no_photo}</p>`;
 
   // Video
   const videos = (p['Videos'] || '').split(',').map(s => s.trim()).filter(Boolean);
@@ -560,7 +596,7 @@ function renderPerson() {
           ? `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${yt}" allowfullscreen loading="lazy"></iframe></div>`
           : `<p style="color:var(--muted);font-size:13px;">Відео: <a href="${url}" target="_blank">${url}</a></p>`;
       }).join('')
-    : `<p style="color:var(--muted);font-size:14px;">Відео немає.</p>`;
+    : `<p style="color:var(--muted);font-size:14px;">${UI[currentLang].no_video}</p>`;
 
   // Audio
   if (ttsPlaying) { window.speechSynthesis.cancel(); setPlayState(false); }
@@ -585,6 +621,7 @@ async function loadData() {
     currentLang = initLang;
     document.querySelectorAll('.lang-btn').forEach(b =>
       b.classList.toggle('active', b.dataset.lang === currentLang));
+    updateUIStrings();
     renderPerson();
 
     document.getElementById('loading-state').style.display = 'none';
