@@ -4,30 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Геліос — Постать</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d2b5e'/><text y='72' x='50' text-anchor='middle' font-size='60'>☀</text></svg>">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0d2b5e;
-    --blue: #1a4fa0;
-    --mid:  #2e6fd9;
-    --sky:  #5b9bd5;
-    --pale: #cde3f8;
-    --fog:  #e8f2fb;
-    --white:#ffffff;
-    --ink:  #0a1f3d;
-    --muted:#4a6a94;
-    --border:#c0d8ef;
-    --gold: #c8a84b;
+    --navy: #0d2b5e; --blue: #1a4fa0; --mid: #2e6fd9; --sky: #5b9bd5;
+    --pale: #cde3f8; --fog: #e8f2fb; --white: #ffffff; --ink: #0a1f3d;
+    --muted: #4a6a94; --border: #c0d8ef; --gold: #c8a84b;
     --r: 10px; --r-lg: 16px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(--ink); }
 
-  /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
     background: rgba(255,255,255,.92); backdrop-filter: blur(12px);
@@ -36,253 +27,103 @@
     height: 62px;
   }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-icon {
-    width: 36px; height: 36px; background: var(--navy); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; font-size: 18px;
-  }
-  .nav-logo-text {
-    font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600;
-    color: var(--navy); letter-spacing: .04em;
-  }
-  .nav-back {
-    display: flex; align-items: center; gap: 6px;
-    text-decoration: none; font-size: 13px; font-weight: 500;
-    color: var(--muted); transition: color .2s;
-  }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--navy); letter-spacing: .04em; }
+  .nav-back { display: flex; align-items: center; gap: 6px; text-decoration: none; font-size: 13px; font-weight: 500; color: var(--muted); transition: color .2s; }
   .nav-back:hover { color: var(--navy); }
   .lang-switcher { display: flex; gap: 4px; }
-  .lang-btn {
-    border: 1px solid var(--border); background: none; cursor: pointer;
-    padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500;
-    color: var(--muted); transition: all .2s; font-family: 'Outfit', sans-serif;
-  }
+  .lang-btn { border: 1px solid var(--border); background: none; cursor: pointer; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--muted); transition: all .2s; font-family: 'Outfit', sans-serif; }
   .lang-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
-  /* HERO BANNER */
-  .person-banner {
-    background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 60%, var(--mid) 100%);
-    padding: 56px 2rem 0;
-    position: relative; overflow: hidden;
-  }
-  .banner-circle {
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.07);
-  }
+  .person-banner { background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 60%, var(--mid) 100%); padding: 56px 2rem 0; position: relative; overflow: hidden; }
+  .banner-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.07); }
   .banner-circle-1 { width: 500px; height: 500px; right: -80px; top: -200px; }
   .banner-circle-2 { width: 280px; height: 280px; right: 80px; top: -50px; }
-  .banner-inner {
-    max-width: 860px; margin: 0 auto;
-    position: relative; z-index: 2;
-  }
-  .breadcrumb {
-    font-size: 12px; color: rgba(255,255,255,.5);
-    margin-bottom: 28px; display: flex; align-items: center; gap: 6px;
-  }
+  .banner-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 28px; display: flex; align-items: center; gap: 6px; }
   .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
   .breadcrumb a:hover { color: rgba(255,255,255,.9); }
 
   .person-header { display: flex; gap: 32px; align-items: flex-end; }
-  .person-avatar {
-    width: 120px; height: 120px; border-radius: 50%;
-    border: 3px solid rgba(255,255,255,.3);
-    background: rgba(255,255,255,.1);
-    flex-shrink: 0; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
+  .person-avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); flex-shrink: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; }
   .person-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .person-avatar-initials {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px; font-weight: 600; color: rgba(255,255,255,.5);
-  }
+  .person-avatar-initials { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: rgba(255,255,255,.5); }
   .person-title-block { flex: 1; padding-bottom: 28px; }
   .person-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-  .badge {
-    font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 100px;
-  }
+  .badge { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
   .badge-cat { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
   .badge-area { background: rgba(200,168,75,.2); color: #f0d080; border: 1px solid rgba(200,168,75,.3); }
-  .person-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(24px, 4vw, 40px); font-weight: 600;
-    color: var(--white); line-height: 1.15; margin-bottom: 8px;
-  }
+  .person-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 40px); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 8px; }
   .person-meta { font-size: 14px; color: rgba(255,255,255,.6); }
   .person-meta span + span::before { content: ' · '; }
 
-  /* Tab strip at bottom of banner */
-  .tab-strip {
-    max-width: 860px; margin: 28px auto 0;
-    display: flex; gap: 0;
-    border-top: 1px solid rgba(255,255,255,.12);
-  }
-  .tab-btn {
-    background: none; border: none; cursor: pointer;
-    font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500;
-    color: rgba(255,255,255,.5); padding: 12px 20px;
-    border-bottom: 2px solid transparent;
-    transition: all .2s;
-  }
+  .tab-strip { max-width: 860px; margin: 28px auto 0; display: flex; border-top: 1px solid rgba(255,255,255,.12); }
+  .tab-btn { background: none; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.5); padding: 12px 20px; border-bottom: 2px solid transparent; transition: all .2s; }
   .tab-btn.active { color: var(--white); border-bottom-color: var(--gold); }
   .tab-btn:hover { color: rgba(255,255,255,.9); }
 
-  /* CONTENT AREA */
   .person-content { max-width: 860px; margin: 0 auto; padding: 48px 2rem 80px; }
 
-  /* Audio player */
-  .audio-player {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--fog); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 14px 20px; margin-bottom: 36px;
-  }
-  .audio-play-btn {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--navy); border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: white; flex-shrink: 0; transition: background .2s;
-  }
+  .audio-player { display: flex; align-items: center; gap: 14px; background: var(--fog); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 20px; margin-bottom: 36px; }
+  .audio-play-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; transition: background .2s; }
   .audio-play-btn:hover { background: var(--mid); }
   .audio-play-btn svg { width: 16px; height: 16px; }
   .audio-info { flex: 1; }
   .audio-title { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
   .audio-sub { font-size: 11px; color: var(--muted); }
-  .audio-progress {
-    flex: 2; height: 4px; background: var(--border); border-radius: 2px;
-    position: relative; cursor: pointer;
-  }
-  .audio-progress-fill {
-    height: 100%; background: var(--mid); border-radius: 2px; width: 0%;
-    transition: width .3s;
-  }
+  .audio-progress { flex: 2; height: 4px; background: var(--border); border-radius: 2px; cursor: pointer; }
+  .audio-progress-fill { height: 100%; background: var(--mid); border-radius: 2px; width: 0%; transition: width .3s; }
   .audio-time { font-size: 12px; color: var(--muted); white-space: nowrap; }
 
-  /* Resume card */
-  .resume-card {
-    background: var(--fog); border-left: 4px solid var(--mid);
-    border-radius: 0 10px 10px 0; padding: 18px 22px;
-    margin-bottom: 32px; font-size: 15px; line-height: 1.7;
-    color: var(--ink);
-  }
+  .resume-card { background: var(--fog); border-left: 4px solid var(--mid); border-radius: 0 10px 10px 0; padding: 18px 22px; margin-bottom: 32px; font-size: 15px; line-height: 1.7; color: var(--ink); }
 
-  /* Achievements */
   .achievements { margin-bottom: 36px; }
-  .achievements h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--navy);
-    margin-bottom: 14px;
-  }
-  .achievement-item {
-    display: flex; gap: 12px; align-items: flex-start;
-    padding: 12px 0; border-bottom: 1px solid var(--fog);
-  }
+  .achievements h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+  .achievement-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--fog); }
   .achievement-item:last-child { border-bottom: none; }
-  .achievement-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--mid); flex-shrink: 0; margin-top: 6px;
-  }
+  .achievement-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mid); flex-shrink: 0; margin-top: 6px; }
   .achievement-text { font-size: 14px; line-height: 1.6; color: var(--ink); }
 
-  /* Full bio */
   .bio-section { margin-bottom: 48px; }
-  .bio-section h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px;
-  }
-  .bio-text {
-    font-size: 15px; line-height: 1.85; color: #1e3a5f;
-    white-space: pre-line;
-  }
-  .bio-text p { margin-bottom: 1em; }
+  .bio-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px; }
+  .bio-text { font-size: 15px; line-height: 1.85; color: #1e3a5f; white-space: pre-line; }
 
-  /* Gallery */
   .gallery-section { margin-bottom: 48px; }
-  .gallery-section h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px;
-  }
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 12px;
-  }
-  .gallery-img {
-    aspect-ratio: 4/3; border-radius: 10px; overflow: hidden;
-    background: var(--fog); cursor: pointer;
-    border: 1.5px solid var(--border); transition: transform .2s;
-  }
+  .gallery-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .gallery-img { aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; background: var(--fog); cursor: pointer; border: 1.5px solid var(--border); transition: transform .2s; }
   .gallery-img:hover { transform: scale(1.02); }
   .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* Lightbox */
-  .lightbox {
-    display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(10,31,61,.95); align-items: center; justify-content: center;
-    flex-direction: column; gap: 16px;
-  }
+  /* Lightbox з навігацією */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,31,61,.95); align-items: center; justify-content: center; }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: 88vw; max-height: 80vh; border-radius: 8px; cursor: pointer; }
-  .lightbox-close {
-    position: absolute; top: 20px; right: 24px;
-    background: none; border: none; color: white;
-    font-size: 28px; cursor: pointer; opacity: .7;
-  }
+  .lightbox-img { max-width: 88vw; max-height: 80vh; border-radius: 8px; cursor: pointer; display: block; }
+  .lightbox-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: white; font-size: 28px; cursor: pointer; opacity: .7; line-height: 1; }
   .lightbox-close:hover { opacity: 1; }
-  .lightbox-nav {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
-    color: white; font-size: 36px; line-height: 1;
-    width: 52px; height: 52px; border-radius: 50%;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: background .2s; user-select: none;
-  }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); color: white; font-size: 32px; width: 52px; height: 52px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; user-select: none; }
   .lightbox-nav:hover { background: rgba(255,255,255,.25); }
-  .lightbox-prev { left: 24px; }
-  .lightbox-next { right: 24px; }
-  .lightbox-counter {
-    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
-    color: rgba(255,255,255,.6); font-size: 13px; font-family: Outfit, sans-serif;
-  }
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
+  .lightbox-counter { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.6); font-size: 13px; font-family: 'Outfit', sans-serif; }
 
-  /* Video section */
   .video-section { margin-bottom: 48px; }
-  .video-section h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px;
-  }
+  .video-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 18px; }
   .video-grid { display: flex; flex-direction: column; gap: 16px; }
   .video-embed { border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: var(--fog); }
   .video-embed iframe { width: 100%; height: 100%; border: none; }
 
-  /* Places */
   .places-section { margin-bottom: 48px; }
-  .places-section h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px;
-  }
+  .places-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
   .places-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .place-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--fog); border: 1.5px solid var(--border);
-    border-radius: 8px; padding: 8px 14px;
-    font-size: 13px; color: var(--muted); font-weight: 400;
-  }
+  .place-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--fog); border: 1.5px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; color: var(--muted); }
   .place-badge-icon { font-size: 14px; }
 
-  /* Loading / error */
-  .loading-page {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; min-height: 60vh; gap: 16px; color: var(--muted);
-  }
-  .spinner {
-    width: 36px; height: 36px; border: 3px solid var(--pale);
-    border-top-color: var(--mid); border-radius: 50%;
-    animation: spin .8s linear infinite;
-  }
+  .loading-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 16px; color: var(--muted); }
+  .spinner { width: 36px; height: 36px; border: 3px solid var(--pale); border-top-color: var(--mid); border-radius: 50%; animation: spin .8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  footer {
-    background: var(--navy); color: rgba(255,255,255,.6);
-    padding: 36px 2rem; text-align: center; font-size: 13px; line-height: 1.8;
-  }
+  footer { background: var(--navy); color: rgba(255,255,255,.6); padding: 36px 2rem; text-align: center; font-size: 13px; line-height: 1.8; }
   footer strong { color: var(--white); }
 
   @media (max-width: 640px) {
@@ -290,12 +131,14 @@
     .person-avatar { width: 80px; height: 80px; }
     .person-avatar-initials { font-size: 28px; }
     .audio-progress { display: none; }
+    .lightbox-nav { width: 40px; height: 40px; font-size: 24px; }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">☀</div>
@@ -308,22 +151,18 @@
     Всі постаті
   </a>
   <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('UA')">UA</button>
-    <button class="lang-btn" onclick="setLang('EN')">EN</button>
-    <button class="lang-btn" onclick="setLang('GR')">GR</button>
+    <button class="lang-btn" data-lang="UA" onclick="setLang('UA')">UA</button>
+    <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">EN</button>
+    <button class="lang-btn" data-lang="GR" onclick="setLang('GR')">GR</button>
   </div>
 </nav>
 
-<!-- Loading state (shown until data loads) -->
 <div id="loading-state" class="loading-page">
   <div class="spinner"></div>
   <span>Завантаження...</span>
 </div>
 
-<!-- Main content (hidden until loaded) -->
 <div id="page-content" style="display:none">
-
-  <!-- BANNER -->
   <div class="person-banner">
     <div class="banner-circle banner-circle-1"></div>
     <div class="banner-circle banner-circle-2"></div>
@@ -357,20 +196,17 @@
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="person-content">
-
-    <!-- Audio player -->
-    <div class="audio-player" id="audio-player">
-      <button class="audio-play-btn" id="play-btn" onclick="toggleAudio()">
+    <div class="audio-player">
+      <button class="audio-play-btn" onclick="toggleAudio()">
         <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
       </button>
       <div class="audio-info">
-        <div class="audio-title" id="audio-title">Слухати біографію</div>
-        <div class="audio-sub" id="audio-lang-label">Завантаження...</div>
+        <div class="audio-title">Слухати біографію</div>
+        <div class="audio-sub" id="audio-lang-label">—</div>
       </div>
-      <div class="audio-progress" id="audio-progress-bar" onclick="seekAudio(event)" style="cursor:pointer">
+      <div class="audio-progress" id="audio-progress-bar" onclick="seekAudio(event)">
         <div class="audio-progress-fill" id="progress-fill"></div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
@@ -386,27 +222,22 @@
     </div>
     <audio id="audio-el"></audio>
 
-    <!-- BIO TAB -->
     <div id="tab-bio">
       <div class="resume-card" id="p-resume"></div>
-
       <div class="achievements" id="achievements-block">
         <h3>Ключові досягнення</h3>
         <div id="achievements-list"></div>
       </div>
-
       <div class="bio-section" id="bio-block">
         <h3>Біографія</h3>
         <div class="bio-text" id="p-bio"></div>
       </div>
-
       <div class="places-section" id="places-block">
         <h3>Пов'язані місця в Харкові</h3>
         <div class="places-list" id="places-list"></div>
       </div>
     </div>
 
-    <!-- GALLERY TAB -->
     <div id="tab-gallery" style="display:none">
       <div class="gallery-section">
         <h3>Фотографії</h3>
@@ -414,14 +245,12 @@
       </div>
     </div>
 
-    <!-- VIDEO TAB -->
     <div id="tab-video" style="display:none">
       <div class="video-section">
         <h3>Відео</h3>
         <div class="video-grid" id="video-grid"></div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -429,7 +258,7 @@
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
-  <img id="lightbox-img" src="" alt="" onclick="lightboxNav(1)">
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" onclick="lightboxNav(1)">
   <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
   <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
@@ -441,17 +270,15 @@
 </footer>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQD4AbZBFczv6I0moaH6vtqfequ1TQuvxo57aPU_eMt0Uuz3S4oVoVjZudKveZ6NhbLGPVvDywvuz8s/pub?gid=0&single=true&output=csv'; // той самий CSV URL
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQD4AbZBFczv6I0moaH6vtqfequ1TQuvxo57aPU_eMt0Uuz3S4oVoVjZudKveZ6NhbLGPVvDywvuz8s/pub?gid=0&single=true&output=csv';
 
-// ── STATE ───────────────────────────────────────────────────────────────
 let person = null;
 let currentLang = 'UA';
 const params = new URLSearchParams(location.search);
 const personId = params.get('id');
 const initLang = params.get('lang') || 'UA';
 
-// ── CSV HELPERS ──────────────────────────────────────────────────────────
+// ── CSV ──────────────────────────────────────────────────────────────────
 function parseCSV(text) {
   const rows = [];
   let inQ = false, field = '', row = [];
@@ -468,139 +295,133 @@ function parseCSV(text) {
   if (field || row.length) { row.push(field); rows.push(row); }
   return rows;
 }
+
 function rowsToObjects(rows) {
-  const h = rows[0].map(k => k.replace(/[\r\n\t]/g,'').trim());
+  const headers = rows[0].map(k => k.replace(/[\r\n\t]/g,'').trim());
   return rows.slice(1).filter(r => r.some(c => c.trim())).map(r => {
     const o = {};
-    h.forEach((k, i) => { if(k) o[k] = (r[i]||'').trim(); });
+    headers.forEach((k, i) => { if (k) o[k] = (r[i] || '').trim(); });
     return o;
   });
 }
+
+// ── FIELD LOOKUP — підтримує підкреслення і пробіли ──────────────────────
 function f(p, key) {
-  const exact = p[currentLang + '_' + key];
-  if (exact !== undefined && exact !== '') return exact;
-  const ua = p['UA_' + key];
-  if (ua !== undefined) return ua;
-  // case-insensitive fallback
-  const lk = (currentLang + '_' + key).toLowerCase();
+  // Пробуємо точний ключ з підкресленням (новий формат)
+  const k1 = currentLang + '_' + key;
+  if (p[k1] !== undefined && p[k1] !== '') return p[k1];
+  // Пробуємо UA fallback з підкресленням
+  const k2 = 'UA_' + key;
+  if (p[k2] !== undefined) return p[k2];
+  // Пробуємо з пробілами (старий формат — про всяк випадок)
+  const k3 = currentLang + '_' + key.replace(/_/g, ' ');
+  if (p[k3] !== undefined && p[k3] !== '') return p[k3];
+  const k4 = 'UA_' + key.replace(/_/g, ' ');
+  if (p[k4] !== undefined) return p[k4];
+  // Case-insensitive останній шанс
+  const lk = k1.toLowerCase();
   const found = Object.keys(p).find(k => k.toLowerCase() === lk);
   if (found) return p[found];
-  const fk = ('ua_' + key).toLowerCase();
-  const fb = Object.keys(p).find(k => k.toLowerCase() === fk);
-  return fb ? p[fb] : '';
+  return '';
 }
-function driveThumb(url, size='w800') {
+
+function driveThumb(url, size = 'w800') {
   const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
   if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=${size}`;
   return url;
 }
+
 function youtubeId(url) {
   const m = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return m ? m[1] : null;
 }
 
-// ── LANG ────────────────────────────────────────────────────────────────
+// ── LANG ─────────────────────────────────────────────────────────────────
 function setLang(lang) {
   currentLang = lang;
+  // Оновлюємо кнопки
   document.querySelectorAll('.lang-btn').forEach(b =>
-    b.classList.toggle('active', b.getAttribute('onclick').includes("'"+lang+"'")));
+    b.classList.toggle('active', b.dataset.lang === lang));
+  // Оновлюємо URL без перезавантаження
+  const url = new URL(location.href);
+  url.searchParams.set('lang', lang);
+  history.replaceState(null, '', url.toString());
+  // Перерендеруємо весь контент
   if (person) renderPerson();
 }
 
-// ── TABS ────────────────────────────────────────────────────────────────
+// ── TABS ─────────────────────────────────────────────────────────────────
 function showTab(tab, btn) {
-  ['bio','gallery','video'].forEach(t =>
-    document.getElementById('tab-'+t).style.display = t === tab ? 'block' : 'none');
+  ['bio', 'gallery', 'video'].forEach(t =>
+    document.getElementById('tab-' + t).style.display = t === tab ? 'block' : 'none');
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
 
-// ── AUDIO ───────────────────────────────────────────────────────────────
-// Mode: 'file' = real audio file from Google Drive, 'tts' = browser TTS fallback
+// ── AUDIO ────────────────────────────────────────────────────────────────
 let audioMode = 'tts';
 let ttsUtterance = null;
 let ttsPlaying = false;
 let ttsText = '';
 const audioEl = document.getElementById('audio-el');
 
-// HTML5 audio events
 audioEl.addEventListener('timeupdate', () => {
   if (!audioEl.duration) return;
-  const pct = (audioEl.currentTime / audioEl.duration) * 100;
-  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-fill').style.width = (audioEl.currentTime / audioEl.duration * 100) + '%';
   document.getElementById('audio-time').textContent = formatTime(audioEl.currentTime);
 });
 audioEl.addEventListener('ended', () => setPlayState(false));
 audioEl.addEventListener('pause', () => setPlayState(false));
 audioEl.addEventListener('play',  () => setPlayState(true));
-audioEl.addEventListener('error', () => {
-  // file failed — fall back to TTS
-  audioMode = 'tts';
-  updateAudioLabel();
-});
+audioEl.addEventListener('error', () => { audioMode = 'tts'; updateAudioLabel(); });
 
 function formatTime(sec) {
   const s = Math.floor(sec);
-  return Math.floor(s/60) + ':' + (s%60+'').padStart(2,'0');
+  return Math.floor(s / 60) + ':' + (s % 60 + '').padStart(2, '0');
 }
 
 function setupAudio() {
-  // pick audio url for current language
-  const audios = (person['Audio'] || '').split(',').map(s=>s.trim()).filter(Boolean);
-  // try to find language-tagged file first (e.g. url contains _UA_ or _EN_)
-  let url = audios.find(u => u.toLowerCase().includes('_'+currentLang.toLowerCase()+'_'))
-            || audios[0] || '';
-
+  const audios = (person['Audio'] || '').split(',').map(s => s.trim()).filter(Boolean);
+  let url = audios.find(u => u.toLowerCase().includes('_' + currentLang.toLowerCase() + '_')) || audios[0] || '';
   if (url) {
     audioMode = 'file';
-    // convert Drive share link to direct stream
     const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
     if (m) url = `https://drive.google.com/uc?export=download&id=${m[1]}`;
     audioEl.src = url;
     audioEl.load();
-    updateAudioLabel();
   } else {
     audioMode = 'tts';
-    updateAudioLabel();
   }
+  updateAudioLabel();
 }
 
 function updateAudioLabel() {
-  const langLabel = { UA: 'українська', EN: 'англійська', GR: 'грецька' };
-  const sub = document.getElementById('audio-lang-label');
-  if (audioMode === 'file') {
-    sub.textContent = `Мова: ${langLabel[currentLang]} · Аудіофайл`;
-  } else {
-    sub.textContent = `Мова: ${langLabel[currentLang]} · Синтез мовлення (браузер)`;
-  }
+  const labels = { UA: 'українська', EN: 'англійська', GR: 'грецька' };
+  document.getElementById('audio-lang-label').textContent =
+    `Мова: ${labels[currentLang]} · ${audioMode === 'file' ? 'Аудіофайл' : 'Синтез мовлення'}`;
 }
 
 function toggleAudio() {
   if (audioMode === 'file') {
-    if (audioEl.paused) { audioEl.play(); }
-    else                { audioEl.pause(); }
+    audioEl.paused ? audioEl.play() : audioEl.pause();
   } else {
     toggleTTS();
   }
 }
 
 function toggleTTS() {
-  if (!('speechSynthesis' in window)) {
-    alert('Аудіочитач не підтримується у вашому браузері.\nДодайте аудіофайл у колонку Audio таблиці.'); return;
-  }
+  if (!('speechSynthesis' in window)) { alert('Аудіочитач не підтримується браузером.'); return; }
   if (ttsPlaying) {
-    window.speechSynthesis.cancel();
-    setPlayState(false);
+    window.speechSynthesis.cancel(); setPlayState(false);
   } else {
     window.speechSynthesis.cancel();
-    ttsText = f(person,'Resume') + '. ' + f(person,'Key achievements').replace(/;/g,'. ') + '. ' + f(person,'Text');
+    ttsText = [f(person,'Resume'), f(person,'Key_achievements').replace(/;/g, '. '), f(person,'Text')].filter(Boolean).join('. ');
     ttsUtterance = new SpeechSynthesisUtterance(ttsText);
-    ttsUtterance.lang = currentLang==='EN' ? 'en-US' : currentLang==='GR' ? 'el-GR' : 'uk-UA';
+    ttsUtterance.lang = currentLang === 'EN' ? 'en-US' : currentLang === 'GR' ? 'el-GR' : 'uk-UA';
     ttsUtterance.rate = parseFloat(document.getElementById('speed-select').value);
-    ttsUtterance.onend = () => { setPlayState(false); document.getElementById('progress-fill').style.width='100%'; };
+    ttsUtterance.onend = () => { setPlayState(false); document.getElementById('progress-fill').style.width = '100%'; };
     ttsUtterance.onboundary = e => {
-      const pct = (e.charIndex / ttsText.length) * 100;
-      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-fill').style.width = (e.charIndex / ttsText.length * 100) + '%';
     };
     window.speechSynthesis.speak(ttsUtterance);
     setPlayState(true);
@@ -609,7 +430,7 @@ function toggleTTS() {
 
 function setPlayState(playing) {
   ttsPlaying = playing;
-  document.getElementById('play-icon').style.display  = playing ? 'none'  : 'block';
+  document.getElementById('play-icon').style.display  = playing ? 'none' : 'block';
   document.getElementById('pause-icon').style.display = playing ? 'block' : 'none';
 }
 
@@ -617,126 +438,15 @@ function seekAudio(e) {
   if (audioMode !== 'file' || !audioEl.duration) return;
   const bar = document.getElementById('audio-progress-bar');
   const rect = bar.getBoundingClientRect();
-  const pct = (e.clientX - rect.left) / rect.width;
-  audioEl.currentTime = pct * audioEl.duration;
+  audioEl.currentTime = ((e.clientX - rect.left) / rect.width) * audioEl.duration;
 }
 
 function changeSpeed(val) {
-  const rate = parseFloat(val);
-  if (audioMode === 'file') { audioEl.playbackRate = rate; }
-  else if (ttsUtterance)    { ttsUtterance.rate = rate; }
+  if (audioMode === 'file') audioEl.playbackRate = parseFloat(val);
+  else if (ttsUtterance) ttsUtterance.rate = parseFloat(val);
 }
 
-// ── RENDER ───────────────────────────────────────────────────────────────
-function renderPerson() {
-  const p = person;
-  document.title = `${f(p,'Name')} — Геліос`;
-
-  const name  = f(p,'Name');
-  const cat   = f(p,'Category');
-  const area  = f(p,'Activity_Area');
-  const years = f(p,'Years');
-  const birth = f(p,'Birth_Place');
-  const resume= f(p,'Resume');
-  const text  = f(p,'Text');
-  const achievements = f(p,'Key_achievements');
-  const placesText = f(p,'Places_in_Kharkiv');
-
-  // breadcrumb
-  document.getElementById('b-cat').textContent = cat;
-  document.getElementById('b-category').textContent = cat;
-  document.getElementById('b-area').textContent = area;
-  document.getElementById('p-name').textContent = name;
-  document.getElementById('p-years').textContent = years;
-  document.getElementById('p-birth').textContent = birth;
-
-  // avatar
-  const initials = name.split(' ').slice(0,2).map(w=>w[0]||'').join('');
-  document.getElementById('avatar-initials').textContent = initials;
-  const photos = (p['Photos']||'').split(',').map(s=>s.trim()).filter(Boolean);
-  const avatarEl = document.getElementById('avatar');
-  if (photos[0]) {
-    avatarEl.innerHTML = `<img src="${driveThumb(photos[0],'w240')}" alt="${name}"
-      onerror="this.parentElement.innerHTML='<span class=\\'person-avatar-initials\\'>${initials}</span>'">`;
-  }
-
-  // resume
-  document.getElementById('p-resume').textContent = resume;
-
-  // achievements
-  const achList = document.getElementById('achievements-list');
-  const achBlock = document.getElementById('achievements-block');
-  if (achievements) {
-    const items = achievements.split(';').map(s=>s.replace(/^[•·\-\s]+/,'').trim()).filter(Boolean);
-    achList.innerHTML = items.map(a =>
-      `<div class="achievement-item">
-        <div class="achievement-dot"></div>
-        <div class="achievement-text">${a}</div>
-      </div>`).join('');
-    achBlock.style.display = 'block';
-  } else {
-    achBlock.style.display = 'none';
-  }
-
-  // bio text
-  const bioEl = document.getElementById('p-bio');
-  if (text) {
-    bioEl.textContent = text;
-    document.getElementById('bio-block').style.display = 'block';
-  } else {
-    document.getElementById('bio-block').style.display = 'none';
-  }
-
-  // places — badges only (no links for now)
-  const placesList = document.getElementById('places-list');
-  const placesBlock = document.getElementById('places-block');
-  if (placesText) {
-    const places = placesText.split(';').map(s=>s.trim()).filter(Boolean);
-    placesList.innerHTML = places.map(pl =>
-      `<span class="place-badge">
-        <span class="place-badge-icon">📍</span>${pl}
-      </span>`).join('');
-    placesBlock.style.display = 'block';
-  } else {
-    placesBlock.style.display = 'none';
-  }
-
-  // gallery
-  const grid = document.getElementById('gallery-grid');
-  lightboxPhotos = photos;
-  if (photos.length) {
-    grid.innerHTML = photos.map((url, i) => {
-      const thumb = driveThumb(url, 'w600');
-      return `<div class="gallery-img" onclick="openLightbox(${i})">
-        <img src="${thumb}" alt="Фото ${i+1}" loading="lazy">
-      </div>`;
-    }).join('');
-  } else {
-    grid.innerHTML = `<p style="color:var(--muted);font-size:14px;">Фотографій немає.</p>`;
-  }
-
-  // video
-  const videos = (p['Videos']||'').split(',').map(s=>s.trim()).filter(Boolean);
-  const vGrid = document.getElementById('video-grid');
-  if (videos.length) {
-    vGrid.innerHTML = videos.map(url => {
-      const yt = youtubeId(url);
-      return yt
-        ? `<div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/${yt}" allowfullscreen loading="lazy"></iframe>
-           </div>`
-        : `<p style="color:var(--muted);font-size:13px;">Відео: <a href="${url}" target="_blank">${url}</a></p>`;
-    }).join('');
-  } else {
-    vGrid.innerHTML = `<p style="color:var(--muted);font-size:14px;">Відео немає.</p>`;
-  }
-
-  // audio
-  setupAudio();
-  if (ttsPlaying) { window.speechSynthesis.cancel(); setPlayState(false); }
-}
-
-// ── LIGHTBOX ─────────────────────────────────────────────────────────────
+// ── LIGHTBOX ──────────────────────────────────────────────────────────────
 let lightboxPhotos = [];
 let lightboxIndex = 0;
 
@@ -746,10 +456,8 @@ function openLightbox(index) {
   document.getElementById('lightbox').classList.add('open');
 }
 function showLightboxPhoto() {
-  const url = driveThumb(lightboxPhotos[lightboxIndex], 'w1200');
-  document.getElementById('lightbox-img').src = url;
-  document.getElementById('lightbox-counter').textContent =
-    (lightboxIndex + 1) + ' / ' + lightboxPhotos.length;
+  document.getElementById('lightbox-img').src = driveThumb(lightboxPhotos[lightboxIndex], 'w1200');
+  document.getElementById('lightbox-counter').textContent = (lightboxIndex + 1) + ' / ' + lightboxPhotos.length;
 }
 function lightboxNav(dir) {
   lightboxIndex = (lightboxIndex + dir + lightboxPhotos.length) % lightboxPhotos.length;
@@ -765,27 +473,123 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft')  lightboxNav(-1);
 });
 
-// ── LOAD ─────────────────────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────────────────
+function renderPerson() {
+  const p = person;
+  document.title = `${f(p, 'Name')} — Геліос`;
+
+  const name         = f(p, 'Name');
+  const cat          = f(p, 'Category');
+  const area         = f(p, 'Activity_Area');
+  const years        = f(p, 'Years');
+  const birth        = f(p, 'Birth_Place');
+  const resume       = f(p, 'Resume');
+  const text         = f(p, 'Text');
+  const achievements = f(p, 'Key_achievements');
+  const placesText   = f(p, 'Places_in_Kharkiv');
+
+  document.getElementById('b-cat').textContent      = cat;
+  document.getElementById('b-category').textContent = cat;
+  document.getElementById('b-area').textContent     = area;
+  document.getElementById('p-name').textContent     = name;
+  document.getElementById('p-years').textContent    = years;
+  document.getElementById('p-birth').textContent    = birth;
+
+  // Avatar
+  const initials = name.split(' ').slice(0, 2).map(w => w[0] || '').join('');
+  document.getElementById('avatar-initials').textContent = initials;
+  const photos = (p['Photos'] || '').split(',').map(s => s.trim()).filter(Boolean);
+  const avatarEl = document.getElementById('avatar');
+  if (photos[0]) {
+    avatarEl.innerHTML = `<img src="${driveThumb(photos[0], 'w240')}" alt="${name}"
+      onerror="this.parentElement.innerHTML='<span class=\\'person-avatar-initials\\'>${initials}</span>'">`;
+  } else {
+    avatarEl.innerHTML = `<span class="person-avatar-initials">${initials}</span>`;
+  }
+
+  // Resume
+  document.getElementById('p-resume').textContent = resume;
+
+  // Achievements
+  const achBlock = document.getElementById('achievements-block');
+  if (achievements) {
+    const items = achievements.split(';').map(s => s.replace(/^[•·\-\s]+/, '').trim()).filter(Boolean);
+    document.getElementById('achievements-list').innerHTML = items.map(a =>
+      `<div class="achievement-item"><div class="achievement-dot"></div><div class="achievement-text">${a}</div></div>`
+    ).join('');
+    achBlock.style.display = 'block';
+  } else {
+    achBlock.style.display = 'none';
+  }
+
+  // Bio
+  const bioBlock = document.getElementById('bio-block');
+  if (text) {
+    document.getElementById('p-bio').textContent = text;
+    bioBlock.style.display = 'block';
+  } else {
+    bioBlock.style.display = 'none';
+  }
+
+  // Places
+  const placesBlock = document.getElementById('places-block');
+  if (placesText) {
+    const places = placesText.split(';').map(s => s.trim()).filter(Boolean);
+    document.getElementById('places-list').innerHTML = places.map(pl =>
+      `<span class="place-badge"><span class="place-badge-icon">📍</span>${pl}</span>`
+    ).join('');
+    placesBlock.style.display = 'block';
+  } else {
+    placesBlock.style.display = 'none';
+  }
+
+  // Gallery
+  lightboxPhotos = photos;
+  document.getElementById('gallery-grid').innerHTML = photos.length
+    ? photos.map((url, i) => `<div class="gallery-img" onclick="openLightbox(${i})">
+        <img src="${driveThumb(url, 'w600')}" alt="Фото ${i+1}" loading="lazy">
+      </div>`).join('')
+    : `<p style="color:var(--muted);font-size:14px;">Фотографій немає.</p>`;
+
+  // Video
+  const videos = (p['Videos'] || '').split(',').map(s => s.trim()).filter(Boolean);
+  document.getElementById('video-grid').innerHTML = videos.length
+    ? videos.map(url => {
+        const yt = youtubeId(url);
+        return yt
+          ? `<div class="video-embed"><iframe src="https://www.youtube.com/embed/${yt}" allowfullscreen loading="lazy"></iframe></div>`
+          : `<p style="color:var(--muted);font-size:13px;">Відео: <a href="${url}" target="_blank">${url}</a></p>`;
+      }).join('')
+    : `<p style="color:var(--muted);font-size:14px;">Відео немає.</p>`;
+
+  // Audio
+  if (ttsPlaying) { window.speechSynthesis.cancel(); setPlayState(false); }
+  setupAudio();
+}
+
+// ── LOAD ──────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
     const resp = await fetch(SHEET_CSV_URL);
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const text = await resp.text();
-    const rows = parseCSV(text);
-    const persons = rowsToObjects(rows);
+    const persons = rowsToObjects(parseCSV(text));
 
-    // find by № or name
     person = persons.find(p =>
       p['№'] === personId ||
-      (p['UA_Name'] || '').toLowerCase().includes((personId||'').toLowerCase())
+      (p['UA_Name'] || '').toLowerCase().includes((personId || '').toLowerCase())
     );
-
     if (!person) throw new Error('Особу не знайдено');
 
-    setLang(initLang);
+    // Встановлюємо мову і рендеримо
+    currentLang = initLang;
+    document.querySelectorAll('.lang-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.lang === currentLang));
+    renderPerson();
+
     document.getElementById('loading-state').style.display = 'none';
-    document.getElementById('page-content').style.display  = 'block';
-  } catch(e) {
+    document.getElementById('page-content').style.display = 'block';
+  } catch (e) {
     document.getElementById('loading-state').innerHTML =
       `<div style="text-align:center;padding:40px;color:var(--muted)">
         <p style="font-size:18px;margin-bottom:8px">⚠</p>
